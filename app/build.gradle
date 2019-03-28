@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.yejy.litholearn"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    // Litho
+    implementation 'com.facebook.litho:litho-core:0.25.0'
+    implementation 'com.facebook.litho:litho-widget:0.25.0'
+
+    annotationProcessor 'com.facebook.litho:litho-processor:0.25.0'
+
+    // SoLoader
+    implementation 'com.facebook.soloader:soloader:0.6.0'
+
+    // For integration with Fresco
+    implementation 'com.facebook.litho:litho-fresco:0.25.0'
+
+    // Sections
+    implementation 'com.facebook.litho:litho-sections-core:0.25.0'
+    implementation 'com.facebook.litho:litho-sections-widget:0.25.0'
+    compileOnly 'com.facebook.litho:litho-sections-annotations:0.25.0'
+
+    annotationProcessor 'com.facebook.litho:litho-sections-processor:0.25.0'
+
+    // For testing
+    testImplementation 'com.facebook.litho:litho-testing:0.25.0'
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+}
